@@ -44,5 +44,4 @@ var ans = abcd()
 console.log(ans)
 
 
-// async 
 

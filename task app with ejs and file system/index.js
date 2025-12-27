@@ -10,7 +10,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Home route – read files and send to EJS
 app.get('/', (req, res) => {
   fs.readdir('./files', (err, files) => {
     if (err) files = []

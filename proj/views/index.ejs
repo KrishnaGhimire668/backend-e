@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-900 text-white">
+
+  <div class="max-w-2xl mx-auto p-10 space-y-10">
+
+    <!-- Form -->
+    <div>
+      <h1 class="text-3xl mb-5">Create Task</h1>
+
+      <form class="space-y-4" action="/create" method="POST">
+        <input
+          class="w-full p-2 rounded text-black"
+          type="text"
+          name="title"
+          placeholder="Title..."
+          required
+        />
+
+        <textarea
+          class="w-full p-2 rounded text-black"
+          name="details"
+          placeholder="Write task details"
+        ></textarea>
+
+        <input
+          class="bg-blue-600 px-4 py-2 rounded cursor-pointer"
+          type="submit"
+          value="Create task"
+        />
+      </form>
+    </div>
+
+    <!-- Tasks -->
+    <div class="space-y-4">
+      <% if (tasks.length > 0) { %>
+        <% tasks.forEach(task => { %>
+          <div class="p-4 rounded bg-zinc-800">
+            <h2 class="text-xl"><%= task.replace('.txt', '') %></h2>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-gray-400 text-center">No tasks yet</p>
+      <% } %>
+    </div>
+
+  </div>
+
+</body>
+</html>
